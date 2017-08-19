@@ -80,12 +80,24 @@ use PHPUnit\Framework\TestCase;
             $bool = $line->EnableLine();
             $this->assertTrue($bool);
 
-
-
-            
-
+            //详情
+            $info = $line->HistoryInLineList(0,10);
+            $this->assertEquals(gettype($info),'array');
 
         }
+
+        public function testUpdateLine(){
+            $lid=3;
+            $line = new Line($lid);
+            $upinfo = [];
+            $upinfo['lname']="nnnnnnnnnn";
+            $upinfo['to_tip']="oooooooooo";
+            $bool = $line->UpdateLine($upinfo); 
+            $this->assertTrue($bool);
+
+        }
+
+       
     }
 
 ?>

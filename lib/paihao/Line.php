@@ -198,13 +198,13 @@ class Line extends Base
     /*
     获取排次列表
      */
-    private function getInLineRows(){
+    private function getInLineRows($offset=0,$limit=1){
         $m = self::GetMySqli();
 
         //获取排次
-        $query = "select * from ph_inline where lid=? order by status asc;"; 
+        $query = "select * from ph_inline where lid=? order by status asc limit ?,?;"; 
         $stmt = $m->prepare($query);                
-        $stmt->bind_param('s',$this->LID);        
+        $stmt->bind_param('sss',$this->LID,$offset,$limit);        
         $bool = $stmt->execute();
         $result = $stmt->get_result();
         $rows = $result->fetch_all(MYSQLI_ASSOC);        
@@ -234,7 +234,26 @@ class Line extends Base
     */
     public function UpdateLine($upInfo)
     {
-       // TODO: implement
+        $m = self::GetMySqli();        
+        $names = "";
+        $value_names = "";
+        $formats = "s";
+        foreach ($upInfo as $key => $value) {
+            $formats = $formats . 's';
+            $names = $names.',`'.$key.'`=?';
+            $value_names = $value_names.',$'.$key;
+        }
+        $names = substr($names,1);            
+        $value_names = substr($value_names,1); 
+        $query="update `ph_line` set ".$names." where `lid` = ? ;";        
+        $stmt = $m->prepare($query);        
+        extract($upInfo);
+        eval(sprintf('$stmt->bind_param($formats,%s,$this->LID);',$value_names));
+
+        $bool = $stmt->execute();
+        $stmt->close(); 
+
+        return $bool;
     }
     
     /**
@@ -247,12 +266,12 @@ class Line extends Base
     }
     
     /**
-    * 排号的历史排队
+    * 排号的历史排次
     * @return   array
     */
-    public function HistoryInLineList()
+    public function HistoryInLineList($offset=0,$limit=10)
     {
-       // TODO: implement
+       return $this->getInLineRows($offset,$limit);
     }
 }
 
