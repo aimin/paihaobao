@@ -1,4 +1,5 @@
 <?php
+namespace paihao;
 //
 // +------------------------------------------------------------------------+
 // | PHP Version 7                                                          |
@@ -15,14 +16,14 @@
 * 用户
 * @author       Administrator
 */
-class User
+class User extends Base
 {
     
     /**
     * 用户ID
     * @var      int
     */
-    private $UID;
+    private $UID;    
     
     /**
     * 构造方法
@@ -31,7 +32,7 @@ class User
     */
     public function __construct($uid)
     {
-       // TODO: implement
+       $this->UID = $uid;
     }
     
     /**
@@ -40,7 +41,7 @@ class User
     */
     public function GetMgShopper()
     {
-       // TODO: implement
+        return new MgShopper($this->UID);
     }
     
     /**
@@ -49,7 +50,7 @@ class User
     */
     public function GetMgLine()
     {
-       // TODO: implement
+       return new MgLine($this->UID);
     }
     
     /**
@@ -57,9 +58,28 @@ class User
     * @param    array $userinfo    用户信息
     * @return   User
     */
-    public function Reg($userinfo)
+    public static function Reg($userinfo)
     {
-       // TODO: implement
+        foreach (["name","mob","wxopid","wxunionid"] as $key => $value) {            
+            if(!isset($userinfo[$value]) || empty($userinfo[$value])){
+                return null;
+            }
+        }
+        
+        $userinfo['createtime'] = time();        
+        $m = self::GetMySqli();
+        $query = "INSERT INTO `ph_users` (`name`, `pwd`, `nick`, `mob`, `wxopid`, `wxunionid`, `createtime`, `image`, `userinfo`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);"; 
+        $stmt = $m->prepare($query);                
+        $stmt->bind_param('sssssssss',$userinfo['name'],$userinfo['pwd'],$userinfo['nick'],$userinfo['mob'],$userinfo['wxopid'],$userinfo['wxunionid'],$userinfo['createtime'],$userinfo['image'],$userinfo['userinfo']);        
+        $bool = $stmt->execute();        
+        if ($bool){
+            $insert_id = $stmt->insert_id;
+        }
+        $stmt->close();
+        if($insert_id>0){
+            return new User($insert_id);
+        }
+        return null;
     }
     
     /**
@@ -67,9 +87,25 @@ class User
     * @param    string $openid    微信OPENID
     * @return   array
     */
-    public function LoginFromOpenId($openid)
+    public static function LoginFromOpenId($openid)
     {
-       // TODO: implement
+        if(!$openid)
+            return null;
+
+        $m = self::GetMySqli();
+        $query = "select * from ph_users where wxopid=?;"; 
+        $stmt = $m->prepare($query);                
+        $stmt->bind_param('s',$openid);        
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_array(MYSQLI_ASSOC);        
+        $stmt->close();
+        unset($row['pwd']);
+
+        if($row['uid']>0){
+            return $row;
+        }
+        return null;
     }
     
     /**
@@ -77,9 +113,25 @@ class User
     * @param    string $unionid    微信UNIONID
     * @return   array
     */
-    public function LoginFromUnionID($unionid)
+    public static function LoginFromUnionID($unionid)
     {
-       // TODO: implement
+       if(!$unionid)
+            return null;
+
+        $m = self::GetMySqli();
+        $query = "select * from ph_users where wxunionid=?;"; 
+        $stmt = $m->prepare($query);                
+        $stmt->bind_param('s',$unionid);        
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_array(MYSQLI_ASSOC);        
+        $stmt->close();
+        unset($row['pwd']);
+        
+        if($row['uid']>0){
+            return $row;
+        }
+        return null;
     }
     
     /**
@@ -88,7 +140,7 @@ class User
     * @param    string $key    密码KEY=md5(用户名+md5(密码))
     * @return   array
     */
-    public function LoginFromKey($name, $key)
+    public static function LoginFromKey($name, $key)
     {
        // TODO: implement
     }

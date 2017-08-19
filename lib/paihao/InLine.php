@@ -1,4 +1,5 @@
 <?php
+namespace paihao;
 //
 // +------------------------------------------------------------------------+
 // | PHP Version 7                                                          |
@@ -15,7 +16,7 @@
 * 排队
 * @author       Administrator
 */
-class InLine
+class InLine extends Base
 {
     
     /**
@@ -38,7 +39,8 @@ class InLine
     */
     public function __construct($uid, $in_id)
     {
-       // TODO: implement
+       $this->UID=$uid;
+       $this->in_id=$in_id;
     }
     
     /**

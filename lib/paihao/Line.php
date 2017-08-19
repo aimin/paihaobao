@@ -1,4 +1,5 @@
 <?php
+namespace paihao;
 //
 // +------------------------------------------------------------------------+
 // | PHP Version 7                                                          |
@@ -15,7 +16,7 @@
 * 排号
 * @author       Administrator
 */
-class Line
+class Line extends Base
 {
     
     /**
@@ -31,43 +32,199 @@ class Line
     */
     public function __construct($lid)
     {
-       // TODO: implement
+       $this->LID = $lid;
     }
     
     /**
-    * 排号开始排队
-    * @return   void
+    * 排号开始
+    * @return   in_id
     */
     public function StartLine()
     {
-       // TODO: implement
+        $m = self::GetMySqli();
+        
+        $lineRow = $this->Get();
+
+        if($lineRow==false){            
+             \sf\SfException::Throw(30001); 
+        }
+        if($lineRow['status']==-1){
+             \sf\SfException::Throw(30002); 
+        }
+
+        $in_id = $this->getInId();
+
+        if($in_id>0){            
+            return $in_id;
+        }else{
+            //开启排次
+            $now = time();            
+            $query="INSERT INTO `ph_inline` (`lid`, `sum`, `curr_num`,`abstain_sum`, `starttime`, `stoptime`, `status`)VALUES( ? , 0, 0, 0, ? , 0, 1);";
+            $stmt = $m->prepare($query);                                  
+            $stmt->bind_param('ss',$this->LID,$now);        
+            $bool = $stmt->execute();
+            if ($bool){
+                $in_id = $stmt->insert_id;
+            }
+            $stmt->close(); 
+            return $in_id;
+        }
+    }
+
+    /*
+    获取排号
+     */
+    public function Get(){
+        $m = self::GetMySqli();
+
+        //获取排次
+        $query = "select * from ph_line where lid=?;"; 
+        $stmt = $m->prepare($query);
+        $stmt->bind_param('s',$this->LID);
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        $stmt->close();
+        if ($row['lid']>0)
+            return $row;
+        else
+            return false;
+    }
+
+    /*
+    获取进行中排次id
+     */
+    private function getInId(){
+        $m = self::GetMySqli();
+
+        //获取排次
+        $query = "select * from ph_inline where status in (0,1);"; 
+        $stmt = $m->prepare($query);
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $inlineRow = $result->fetch_array(MYSQLI_ASSOC);
+        $stmt->close();
+        if ($inlineRow['in_id']>0)
+            return $inlineRow['in_id'];
+        else
+            return false;
     }
     
+   
+
     /**
-    * 排号停止排队
-    * @return   void
+    * 排号停止
+    * @return   bool
     */
     public function StopLine()
     {
-       // TODO: implement
+        $m = self::GetMySqli();
+        $in_id = $this->getInId();
+
+        //停止排次
+        $now = time();
+        $query="update `ph_inline` set `status`=2 , `stoptime`=? where `in_id` = ? and `status`= 1 ;";
+        $stmt = $m->prepare($query);
+        $stmt->bind_param('ss',$now,$in_id);
+        $bool = $stmt->execute();
+        $stmt->close(); 
+        
+        return $bool;
     }
     
     /**
-    * 逻辑删除排号
-    * @return   void
+    * 逻辑删除的排号，在列表中看不到
+    * @return   bool
     */
     public function DeleteLine()
     {
-       // TODO: implement
+        $m = self::GetMySqli();
+        $in_id = $this->getInId();
+        if($in_id>0){
+            \sf\SfException::Throw(30000);            
+        }
+        //逻辑删除排号
+        $now = time();
+        $query="update `ph_line` set `status`=-1,modifytime=? where `lid` = ? ;";
+        $stmt = $m->prepare($query);
+        $stmt->bind_param('ss',$now,$this->LID);
+        $bool = $stmt->execute();
+        $stmt->close(); 
+
+        return $bool;
+    }
+
+    /**
+    * 禁用排号,列表中可以看到,便不能排号
+    * @return   void
+    */
+    public function DisableLine()
+    {
+        $m = self::GetMySqli();
+        $in_id = $this->getInId();
+        if($in_id>0){
+            \sf\SfException::Throw(30000);            
+        }
+
+        //禁用
+        $now = time();
+        $query="update `ph_line` set `status`=1,modifytime=? where `lid` = ? ;";
+        $stmt = $m->prepare($query);
+        $stmt->bind_param('ss',$now,$this->LID);
+        $bool = $stmt->execute();
+        $stmt->close(); 
+
+        return $bool;
+    }
+    /**
+    * 启用排号
+    * @return   void
+    */
+    public function EnableLine()
+    {
+        $m = self::GetMySqli();
+
+        //启用
+        $now = time();
+        $query="update `ph_line` set `status`=0,modifytime=? where `lid` = ? ;";
+        $stmt = $m->prepare($query);
+        $stmt->bind_param('ss',$now,$this->LID);
+        $bool = $stmt->execute();
+        $stmt->close(); 
+
+        return $bool;
     }
     
+    /*
+    获取排次列表
+     */
+    private function getInLineRows(){
+        $m = self::GetMySqli();
+
+        //获取排次
+        $query = "select * from ph_inline where lid=? order by status asc;"; 
+        $stmt = $m->prepare($query);                
+        $stmt->bind_param('s',$this->LID);        
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);        
+        $stmt->close();
+        if (count($rows)>0)
+            return $rows;
+        else
+            return false;
+    }
+
     /**
-    * 查看排号详情
+    * 查看排号中详情
     * @return   array
     */
-    public function LineDetail()
+    public function InLineDetail()
     {
-       // TODO: implement
+       $detail = [];
+       $detail['line'] = $this->Get();
+       $detail['inline'] = $this->getInLineRows()[0];       
+       return $detail;
     }
     
     /**

@@ -1,5 +1,6 @@
 <?php
 namespace paihao;
+use \sf\SfMySqli as mysql;
 //
 // +------------------------------------------------------------------------+
 // | PHP Version 7                                                          |
@@ -13,56 +14,41 @@ namespace paihao;
 
 
 /**
-* 顾客管理
+* 用户
 * @author       Administrator
 */
-class MgShopper
+class Base
 {
     
     /**
     * 用户ID
     * @var      int
     */
-    private $UID;
+    protected static $mysqli;    
     
     /**
-    * 构造方法
-    * @param    int $uid    用户UID
-    * @return   void
+    * 获取mysql客户端    
+    * @return   mysqli_client
     */
-    public function __construct($uid)
+    public static function GetMySqli()
     {
-       $this->UID = $uid;
+       $cfg = \sf\Config::Get('db');
+       if (!self::$mysqli ){
+            self::$mysqli=new mysql($cfg['host'], $cfg['user'], $cfg['pwd'], $cfg['dbname']);
+            if (mysqli_connect_errno()) {
+                printf("Connect failed: %s\n", mysqli_connect_error());
+                exit();
+            }
+       }
+       return self::$mysqli;
     }
-    /**
-    * 叫号
-    * @param    int $InLineNum    排队号
-    * @return   boolean
-    */
-    public function CallNum($InLineNum)
-    {
-       // TODO: implement
+
+    public function mySqli(){
+      return self::GetMySqli();
     }
+
     
-    /**
-    * 管理员消号
-    * @param    int $InLineNum    排队号
-    * @return   boolean
-    */
-    public function MgCancelNum($InLineNum)
-    {
-       // TODO: implement
-    }
-    
-    /**
-    * 我的顾客列表
-    * @return   array
-    */
-    public function ShopperList()
-    {
-       // TODO: implement
-    }
-    
+
 }
 
 ?>

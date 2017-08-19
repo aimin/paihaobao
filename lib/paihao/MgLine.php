@@ -1,4 +1,5 @@
 <?php
+namespace paihao;
 //
 // +------------------------------------------------------------------------+
 // | PHP Version 7                                                          |
@@ -15,7 +16,7 @@
 * 排号管理
 * @author       Administrator
 */
-class MgLine
+class MgLine extends Base
 {
     
     /**
@@ -31,16 +32,25 @@ class MgLine
     */
     public function __construct($uid)
     {
-       // TODO: implement
+       $this->UID = $uid;
     }
     
     /**
     * 我发起的排号列表
     * @return   array
     */
-    public function MyLaunchedLineList()
+    public function MyLaunchedLineList($offset=0,$limit = 10)
     {
-       // TODO: implement
+        $m = self::GetMySqli();
+        $query = "select * from ph_line where uid=? and status > -1 order by lid desc limit ?,?;"; 
+        $stmt = $m->prepare($query);                
+        $stmt->bind_param('iii',$this->UID,$offset,$limit);        
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);        
+        $stmt->close();
+
+        return $rows;
     }
     
     /**
@@ -50,7 +60,26 @@ class MgLine
     */
     public function CreateLine($info)
     {
-       // TODO: implement
+        foreach (["uid","lname"] as $key => $value) {            
+            if(!isset($info[$value]) || empty($info[$value])){
+                return null;
+            }
+        } 
+        $info['createtime']=time();
+        $info['wx_scene']=uniqid();
+        $info['status']=0;
+        $m = self::GetMySqli();
+        $query = "INSERT INTO `ph_line` (`uid`, `lname`, `to_tip`, `close_tip`, `createtime`, `modifytime`, `status`, `wx_scene`) VALUES (?, ?, ?, ?, ?, 0, ?, ?);";
+        $stmt = $m->prepare($query);                
+        $stmt->bind_param('sssssss',$info['uid'],$info['lname'],$info['to_tip'],$info['close_tip'],$info['createtime'],$info['status'],$info['wx_scene']);        
+        $bool = $stmt->execute();        
+        if ($bool){
+            $insert_id = $stmt->insert_id;
+        }
+        $stmt->close();
+        if($insert_id>0){
+            return new Line($insert_id);
+        }
     }
     
     /**
@@ -60,7 +89,7 @@ class MgLine
     */
     public function GetLine($lid)
     {
-       // TODO: implement
+        return new line($lid);
     }
 }
 
