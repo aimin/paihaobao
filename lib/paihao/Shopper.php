@@ -16,14 +16,14 @@ namespace paihao;
 * 顾客
 * @author       Administrator
 */
-class Shopper
+class Shopper extends Base
 {
     
     /**
     * 顾客ID
     * @var      int
     */
-    private $CID;
+    private $UID;
     
     /**
     * 构造方法
@@ -32,26 +32,39 @@ class Shopper
     */
     public function __construct($uid)
     {
-       // TODO: implement
+       $this->UID= $uid;
     }
     
     /**
-    * 获理排队管理
+    * 排队并取号
     * @param    int $in_id    排次ID
     * @return   InLine
     */
     public function GetInLine($in_id)
     {
-       // TODO: implement
+       return new InLine($this->UID,$in_id);
     }
     
     /**
     * 获得我的排队列表
     * @return   array
     */
-    public function GetInLineList()
+    public function GetInLineList($offset=0,$limit=10)
     {
-       // TODO: implement
+        $m = self::GetMySqli();
+
+        //获取排次
+        $query = "select * from ph_shopper where uid=? limit ?,?;"; 
+        $stmt = $m->prepare($query);                
+        $stmt->bind_param('sss',$this->UID,$offset,$limit);        
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);        
+        $stmt->close();
+        if (count($rows)>0)
+            return $rows;
+        else
+            return false;
     }
 }
 

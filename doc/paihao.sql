@@ -70,20 +70,19 @@ create unique index index_wx_scene on ph_line
 /*==============================================================*/
 /* Table: ph_shopper                                            */
 /*==============================================================*/
-create table ph_shopper
-(
-   cid                  bigint not null comment '顾客id',
-   uid                  bigint,
-   lid                  bigint,
-   in_id                bigint,
-   createtime           integer comment '创建时间',
-   number               int,
-   callsum              int comment '呼号次数',
-   status               int comment '-2管理员消号，-1放弃排号，0排号中，1叫号中，2确认收到叫号,3排号完成',
-   primary key (cid)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ;
 
-alter table ph_shopper comment '顾客排队表';
+CREATE TABLE `ph_shopper` (
+  `cid` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '顾客id',
+  `uid` bigint(20) DEFAULT NULL,
+  `lid` bigint(20) DEFAULT NULL,
+  `in_id` bigint(20) DEFAULT NULL,
+  `createtime` int(11) DEFAULT NULL COMMENT '创建时间',
+  `modifytime` int(11) DEFAULT NULL COMMENT '最后修改时间',
+  `number` int(11) DEFAULT NULL,
+  `callsum` int(11) DEFAULT NULL COMMENT '呼号次数',
+  `status` int(11) DEFAULT NULL COMMENT '-2管理员消号，-1放弃排号，0排号中，1叫号中，2确认收到叫号,3排号完成',
+  PRIMARY KEY (`cid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='顾客排队表';
 
 /*==============================================================*/
 /* Table: ph_users                                              */

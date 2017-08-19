@@ -146,13 +146,12 @@ class User extends Base
     }
     
     /**
-    * 用户转为顾客
-    * @param    string $wx_scene    用户的微信scene
+    * 用户转为顾客    
     * @return   Shopper
     */
-    public function ToShopper($wx_scene)
+    public function ToShopper()
     {
-       // TODO: implement
+       return new Shopper($this->UID);  
     }
 }
 
