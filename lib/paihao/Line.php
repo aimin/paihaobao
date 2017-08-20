@@ -94,12 +94,13 @@ class Line extends Base
     /*
     获取进行中排次id
      */
-    private function getInId(){
+    public function getInId(){
         $m = self::GetMySqli();
 
         //获取排次
-        $query = "select * from ph_inline where status in (0,1);"; 
+        $query = "select * from ph_inline where lid=? and status in (0,1);"; 
         $stmt = $m->prepare($query);
+        $stmt->bind_param('s',$this->LID);
         $bool = $stmt->execute();
         $result = $stmt->get_result();
         $inlineRow = $result->fetch_array(MYSQLI_ASSOC);
@@ -198,7 +199,7 @@ class Line extends Base
     /*
     获取排次列表
      */
-    private function getInLineRows($offset=0,$limit=1){
+    public function getInLineRows($offset=0,$limit=1){
         $m = self::GetMySqli();
 
         //获取排次

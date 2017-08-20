@@ -5,7 +5,7 @@ namespace sf;
  */
 class SfException extends \Exception
 {
-    public static function Throw($code){
+    public static function Throw($code){                      
         throw new \sf\SfException(\sf\Config::Get('err')[$code],$code);
     }
 }

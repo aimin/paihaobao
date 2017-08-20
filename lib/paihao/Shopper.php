@@ -42,6 +42,9 @@ class Shopper extends Base
     */
     public function GetInLine($in_id)
     {
+        if (!$in_id){
+            \sf\SfException::Throw(29002); 
+        }
        return new InLine($this->UID,$in_id);
     }
     

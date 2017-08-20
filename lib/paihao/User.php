@@ -37,11 +37,12 @@ class User extends Base
     
     /**
     * 获得顾客管理
+    * @param  $lid 排号id
     * @return   MgShopper
     */
-    public function GetMgShopper()
+    public function GetMgShopper($lid)
     {
-        return new MgShopper($this->UID);
+        return new MgShopper($this->UID,$lid);
     }
     
     /**
@@ -152,6 +153,23 @@ class User extends Base
     public function ToShopper()
     {
        return new Shopper($this->UID);  
+    }
+
+    //微信sence转为排号的LID
+    public static function WxSenceToLID($wxSence){
+        //获取排次
+        $query = "select * from ph_line where `wx_scene`=?;"; 
+        $stmt = $m->prepare($query);
+        $stmt->bind_param('s',$wxSence);
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        $stmt->close();
+        if(intval($row['lid'])>0){
+            return $row['lid'];
+        }else{
+            return false;
+        }
     }
 }
 

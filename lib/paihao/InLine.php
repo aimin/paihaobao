@@ -46,11 +46,6 @@ class InLine extends Base
        $this->in_id=$in_id;
        $this->genNum();
     }
-
-    //微信sence转为排号的排次ID
-    public static function wxSenceToInID(){
-         // TODO: implement
-    }
     
     /**
     * 放弃排队
@@ -66,6 +61,13 @@ class InLine extends Base
         $stmt->bind_param('sss',$now,$this->UID,$this->in_id);
         $bool = $stmt->execute();
         $stmt->close();
+        if($bool){
+            $query="update `ph_inline` set `abstain_sum`=`abstain_sum`+1 where `in_id` = ? ;";
+            $stmt = $m->prepare($query);
+            $stmt->bind_param('s',$this->in_id);
+            $bool = $stmt->execute();
+            $stmt->close();
+        }
 
         return $bool;
     }
@@ -119,8 +121,17 @@ class InLine extends Base
         $stmt->bind_param('ssssi',$this->UID,$lid,$this->in_id,$now,$num);
         $bool = $stmt->execute();        
         if ($bool){
+            //总数加一
+            $query="update `ph_inline` set `sum`=`sum`+1 where `in_id` = ? ;";
+            $stmt = $m->prepare($query);
+            $stmt->bind_param('s',$this->in_id);
+            $bool = $stmt->execute();
+            if($bool){
+                $c_id = $stmt->insert_id;
+            }
+            $stmt->close();
+
             $this->Num=$num;
-            $c_id = $stmt->insert_id;
         }
     }
     
