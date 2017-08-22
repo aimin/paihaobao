@@ -1,0 +1,23 @@
+/**index.wxss**/
+.inputview{
+  text-align:left;
+  padding-top: 20px;
+  padding-left: 20px;
+  vertical-align: middle;
+  line-height: 30px;
+  float:left;  
+}
+.inputview text{
+  text-align: left;
+  float: left;
+}
+
+.inputview button{  
+  width: 100px;
+}
+.top30{
+  margin-top: 30px;  
+}
+.float_left{
+  float: left;
+}

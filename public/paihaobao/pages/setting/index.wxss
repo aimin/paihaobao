@@ -1,0 +1,26 @@
+/**index.wxss**/
+.flex-item{
+  width: 150px;
+  float: left;
+  margin-left: 20px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;  
+  line-height: 100px;
+  word-break:break-all;
+}
+.bc_green{
+  background: #ff0000;
+}
+.bc_red{
+  background: #00ff00;
+}
+.bc_blue{
+  background: #0000ff;
+}
+.bc_cc{
+  background: #cccccc;
+}
+.top10{
+  margin-top: 20px;
+}

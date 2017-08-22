@@ -1,0 +1,34 @@
+/**index.wxss**/
+.item{
+    border-bottom: 2rpx solid #e3e3e3;
+    display:flex;
+    padding:0;
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+    font-size: 34rpx;
+}
+.item text{
+    display:inline-block;
+    padding: 10rpx;
+}
+.title{
+ width: 90%;   
+}
+.no{
+   width: 100rpx;  
+}
+.name{
+  width: 200rpx;     
+}
+.detail{
+    text-align:right;  
+    flex:1;
+    margin-right: 5px;
+}
+button{  
+  margin-left: 150px;
+  float:left;
+  margin-top: 100px;
+  width: 100px;
+  margin-bottom: 0px;    
+}

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sap.com/powerdesigner/bpmn2" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="_hLAt4IYlEeev5Zj3i2u0DQ" targetNamespace="http://www.sap.com/powerdesigner/bpmn2">
+  <bpmn2:process id="_hLAt4YYlEeev5Zj3i2u0DQ" name="BusinessProcessModel_1">
+    <bpmn2:ioSpecification id="_hLAt4oYlEeev5Zj3i2u0DQ">
+      <bpmn2:inputSet id="_hLAt44YlEeev5Zj3i2u0DQ" />
+      <bpmn2:outputSet id="_hLAt5IYlEeev5Zj3i2u0DQ" />
+    </bpmn2:ioSpecification>
+    <bpmn2:task id="_hLAt5YYlEeev5Zj3i2u0DQ" name="项目经理同意">
+      <bpmn2:incoming>_hLAt5oYlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:outgoing>_hLAt54YlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_hLAt6IYlEeev5Zj3i2u0DQ">
+        <bpmn2:inputSet id="_hLAt6YYlEeev5Zj3i2u0DQ" />
+        <bpmn2:outputSet id="_hLAt6oYlEeev5Zj3i2u0DQ" />
+      </bpmn2:ioSpecification>
+    </bpmn2:task>
+    <bpmn2:task id="_hLAt64YlEeev5Zj3i2u0DQ" name="产品经理同意">
+      <bpmn2:incoming>_hLAt7IYlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:outgoing>_hLAt7YYlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_hLAt7oYlEeev5Zj3i2u0DQ">
+        <bpmn2:inputSet id="_hLAt74YlEeev5Zj3i2u0DQ" />
+        <bpmn2:outputSet id="_hLAt8IYlEeev5Zj3i2u0DQ" />
+      </bpmn2:ioSpecification>
+    </bpmn2:task>
+    <bpmn2:task id="_hLAt8YYlEeev5Zj3i2u0DQ" name="项目组长同意">
+      <bpmn2:incoming>_hLAt8oYlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:outgoing>_hLAt84YlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_hLAt9IYlEeev5Zj3i2u0DQ">
+        <bpmn2:inputSet id="_hLAt9YYlEeev5Zj3i2u0DQ" />
+        <bpmn2:outputSet id="_hLAt9oYlEeev5Zj3i2u0DQ" />
+      </bpmn2:ioSpecification>
+    </bpmn2:task>
+    <bpmn2:task id="_hLAt94YlEeev5Zj3i2u0DQ" name="项目总监同意">
+      <bpmn2:incoming>_hLAt7YYlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:incoming>_hLAt54YlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:incoming>_hLAt84YlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:outgoing>_hLAt-IYlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_hLAt-YYlEeev5Zj3i2u0DQ">
+        <bpmn2:inputSet id="_hLAt-oYlEeev5Zj3i2u0DQ" />
+        <bpmn2:outputSet id="_hLAt-4YlEeev5Zj3i2u0DQ" />
+      </bpmn2:ioSpecification>
+    </bpmn2:task>
+    <bpmn2:task id="_hLAt_IYlEeev5Zj3i2u0DQ" name="人事部门同意">
+      <bpmn2:incoming>_hLAt_YYlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:outgoing>_hLAt_oYlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_hLAt_4YlEeev5Zj3i2u0DQ">
+        <bpmn2:inputSet id="_hLAuAIYlEeev5Zj3i2u0DQ" />
+        <bpmn2:outputSet id="_hLAuAYYlEeev5Zj3i2u0DQ" />
+      </bpmn2:ioSpecification>
+    </bpmn2:task>
+    <bpmn2:startEvent id="_hLAuAoYlEeev5Zj3i2u0DQ" name="StartEvent_1">
+      <bpmn2:outgoing>_hLAuA4YlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+      <bpmn2:outputSet id="_hLAuBIYlEeev5Zj3i2u0DQ" />
+    </bpmn2:startEvent>
+    <bpmn2:endEvent id="_hLAuBYYlEeev5Zj3i2u0DQ" name="EndEvent_1">
+      <bpmn2:incoming>_hLAt_oYlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:inputSet id="_hLAuBoYlEeev5Zj3i2u0DQ" />
+    </bpmn2:endEvent>
+    <bpmn2:parallelGateway id="_hLAuB4YlEeev5Zj3i2u0DQ" name="ParallelGateway_1">
+      <bpmn2:incoming>_hLAuA4YlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:outgoing>_hLAt5oYlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+      <bpmn2:outgoing>_hLAt7IYlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+      <bpmn2:outgoing>_hLAt8oYlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:parallelGateway id="_hLAuCIYlEeev5Zj3i2u0DQ" name="ParallelGateway_2">
+      <bpmn2:incoming>_hLAt-IYlEeev5Zj3i2u0DQ</bpmn2:incoming>
+      <bpmn2:outgoing>_hLAt_YYlEeev5Zj3i2u0DQ</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="_hLAt7YYlEeev5Zj3i2u0DQ" name="SequenceFlow_4" sourceRef="_hLAt64YlEeev5Zj3i2u0DQ" targetRef="_hLAt94YlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAt54YlEeev5Zj3i2u0DQ" name="SequenceFlow_5" sourceRef="_hLAt5YYlEeev5Zj3i2u0DQ" targetRef="_hLAt94YlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAt84YlEeev5Zj3i2u0DQ" name="SequenceFlow_6" sourceRef="_hLAt8YYlEeev5Zj3i2u0DQ" targetRef="_hLAt94YlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAt_oYlEeev5Zj3i2u0DQ" name="SequenceFlow_9" sourceRef="_hLAt_IYlEeev5Zj3i2u0DQ" targetRef="_hLAuBYYlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAuA4YlEeev5Zj3i2u0DQ" name="SequenceFlow_6" sourceRef="_hLAuAoYlEeev5Zj3i2u0DQ" targetRef="_hLAuB4YlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAt5oYlEeev5Zj3i2u0DQ" name="SequenceFlow_7" sourceRef="_hLAuB4YlEeev5Zj3i2u0DQ" targetRef="_hLAt5YYlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAt7IYlEeev5Zj3i2u0DQ" name="SequenceFlow_8" sourceRef="_hLAuB4YlEeev5Zj3i2u0DQ" targetRef="_hLAt64YlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAt8oYlEeev5Zj3i2u0DQ" name="SequenceFlow_9" sourceRef="_hLAuB4YlEeev5Zj3i2u0DQ" targetRef="_hLAt8YYlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAt-IYlEeev5Zj3i2u0DQ" name="SequenceFlow_8" sourceRef="_hLAt94YlEeev5Zj3i2u0DQ" targetRef="_hLAuCIYlEeev5Zj3i2u0DQ" />
+    <bpmn2:sequenceFlow id="_hLAt_YYlEeev5Zj3i2u0DQ" name="SequenceFlow_9" sourceRef="_hLAuCIYlEeev5Zj3i2u0DQ" targetRef="_hLAt_IYlEeev5Zj3i2u0DQ" />
+    <bpmn2:property id="_hLAuCYYlEeev5Zj3i2u0DQ" name="boundaryNotVisibleProperty" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_hLAuCoYlEeev5Zj3i2u0DQ">
+    <bpmndi:BPMNPlane id="_hLAuC4YlEeev5Zj3i2u0DQ" bpmnElement="_hLAt4YYlEeev5Zj3i2u0DQ">
+      <bpmndi:BPMNShape id="_hLAuDIYlEeev5Zj3i2u0DQ" bpmnElement="_hLAuAoYlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="59.975" width="59.975" x="32.0" y="220.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_hLAuDYYlEeev5Zj3i2u0DQ" bpmnElement="_hLAuBYYlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="59.975" width="59.975" x="1833.0" y="263.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_hLAuDoYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt5YYlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="50.0" width="150.0" x="621.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_hLAuD4YlEeev5Zj3i2u0DQ" bpmnElement="_hLAt64YlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="50.0" width="150.0" x="613.0" y="257.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_hLAuEIYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt8YYlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="50.0" width="150.0" x="636.0" y="506.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_hLAuEYYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt94YlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="50.0" width="150.0" x="909.0" y="264.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_hLAuEoYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt_IYlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="50.0" width="150.0" x="1518.0" y="276.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_hLAuE4YlEeev5Zj3i2u0DQ" bpmnElement="_hLAuB4YlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="60.025" width="60.025" x="354.0" y="242.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_hLAuFIYlEeev5Zj3i2u0DQ" bpmnElement="_hLAuCIYlEeev5Zj3i2u0DQ">
+        <dc:Bounds height="60.025" width="60.025" x="1261.0" y="280.0" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_hLAuFYYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt7YYlEeev5Zj3i2u0DQ" sourceElement="_hLAuD4YlEeev5Zj3i2u0DQ" targetElement="_hLAuEYYlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="763.0" y="289.0" />
+        <di:waypoint xsi:type="dc:Point" x="909.0" y="289.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuFoYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt54YlEeev5Zj3i2u0DQ" sourceElement="_hLAuDoYlEeev5Zj3i2u0DQ" targetElement="_hLAuEYYlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="771.0" y="25.0" />
+        <di:waypoint xsi:type="dc:Point" x="984.0" y="25.0" />
+        <di:waypoint xsi:type="dc:Point" x="984.0" y="264.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuF4YlEeev5Zj3i2u0DQ" bpmnElement="_hLAt84YlEeev5Zj3i2u0DQ" sourceElement="_hLAuEIYlEeev5Zj3i2u0DQ" targetElement="_hLAuEYYlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="786.0" y="531.0" />
+        <di:waypoint xsi:type="dc:Point" x="984.0" y="531.0" />
+        <di:waypoint xsi:type="dc:Point" x="984.0" y="314.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuGIYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt_oYlEeev5Zj3i2u0DQ" sourceElement="_hLAuEoYlEeev5Zj3i2u0DQ" targetElement="_hLAuDYYlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="1668.0" y="293.0" />
+        <di:waypoint xsi:type="dc:Point" x="1833.0" y="293.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuGYYlEeev5Zj3i2u0DQ" bpmnElement="_hLAuA4YlEeev5Zj3i2u0DQ" sourceElement="_hLAuDIYlEeev5Zj3i2u0DQ" targetElement="_hLAuE4YlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="92.0" y="250.0" />
+        <di:waypoint xsi:type="dc:Point" x="223.0" y="250.0" />
+        <di:waypoint xsi:type="dc:Point" x="223.0" y="272.0" />
+        <di:waypoint xsi:type="dc:Point" x="354.0" y="272.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuGoYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt5oYlEeev5Zj3i2u0DQ" sourceElement="_hLAuE4YlEeev5Zj3i2u0DQ" targetElement="_hLAuDoYlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="384.0" y="242.0" />
+        <di:waypoint xsi:type="dc:Point" x="384.0" y="25.0" />
+        <di:waypoint xsi:type="dc:Point" x="621.0" y="25.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuG4YlEeev5Zj3i2u0DQ" bpmnElement="_hLAt7IYlEeev5Zj3i2u0DQ" sourceElement="_hLAuE4YlEeev5Zj3i2u0DQ" targetElement="_hLAuD4YlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="414.0" y="272.0" />
+        <di:waypoint xsi:type="dc:Point" x="514.0" y="272.0" />
+        <di:waypoint xsi:type="dc:Point" x="514.0" y="282.0" />
+        <di:waypoint xsi:type="dc:Point" x="613.0" y="282.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuHIYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt8oYlEeev5Zj3i2u0DQ" sourceElement="_hLAuE4YlEeev5Zj3i2u0DQ" targetElement="_hLAuEIYlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="384.0" y="302.0" />
+        <di:waypoint xsi:type="dc:Point" x="384.0" y="531.0" />
+        <di:waypoint xsi:type="dc:Point" x="636.0" y="531.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuHYYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt-IYlEeev5Zj3i2u0DQ" sourceElement="_hLAuEYYlEeev5Zj3i2u0DQ" targetElement="_hLAuFIYlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="1059.0" y="278.0" />
+        <di:waypoint xsi:type="dc:Point" x="1160.0" y="278.0" />
+        <di:waypoint xsi:type="dc:Point" x="1160.0" y="310.0" />
+        <di:waypoint xsi:type="dc:Point" x="1262.0" y="310.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_hLAuHoYlEeev5Zj3i2u0DQ" bpmnElement="_hLAt_YYlEeev5Zj3i2u0DQ" sourceElement="_hLAuFIYlEeev5Zj3i2u0DQ" targetElement="_hLAuEoYlEeev5Zj3i2u0DQ">
+        <di:waypoint xsi:type="dc:Point" x="1322.0" y="310.0" />
+        <di:waypoint xsi:type="dc:Point" x="1420.0" y="310.0" />
+        <di:waypoint xsi:type="dc:Point" x="1420.0" y="301.0" />
+        <di:waypoint xsi:type="dc:Point" x="1518.0" y="301.0" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

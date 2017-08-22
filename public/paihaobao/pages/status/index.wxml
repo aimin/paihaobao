@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="section">
+  <!--排号中-->
+  <view class="lining" style="display:">
+    <view class="title">用餐排号</view>
+    <view class="content">
+          <view class="classname">您当前排在<text>100</text>号，</view>
+          <view class="classname">您前面还有<text>49</text>位，</view>
+          <view class="classname">请您耐心等待！！</view>       
+      </view>
+
+      <view class="inputview top30">
+        <navigator url="/pages/index2/index" open-type="switchTab" ><button>放弃排队</button></navigator>
+      </view> 
+      <view class="inputview">
+        <navigator url="/pages/setting/index" open-type="switchTab" ><button>返回我的排队</button></navigator>
+      </view>
+  </view>
+
+  <!--排号关闭-->
+  <view class="lining" style="display:none">
+    <view class="title">用餐排号</view>
+    <view class="content">
+          <view class="classname">排号已停止!</view>          
+          <view class="classname">感谢您的参与！</view>       
+      </view>
+
+      <view class="inputview top30">
+        <navigator url="/pages/index2/index" open-type="switchTab" ><button>返回我的排队</button></navigator>
+      </view>
+  </view>
+
+  <!--排号到-->
+  <view class="lining" style="display:none">
+    <view class="title">用餐排号</view>
+    <view class="content">
+           <view class="classname">已叫到您的排号<text>100</text>号，</view>     
+          <view class="classname">请您到服务窗口办理！</view>       
+      </view>
+
+      <view class="inputview top30">
+        <navigator url="/pages/index2/index" open-type="switchTab" ><button>确认收到叫号</button></navigator>
+      </view>
+       <view class="inputview">
+        <navigator url="/pages/setting/index" open-type="switchTab" ><button>放弃排队</button></navigator>
+      </view>
+  </view>
+
+
+</view>

@@ -1,0 +1,77 @@
+<!--index.wxml-->
+<view class="page" >  
+
+  <scroll-view scroll-y style="height:500px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" >
+   <view class="item">
+    <text class="title"><text class="num">98</text>.<text class="name">张三</text> | <text class="status">排号中</text></text>
+    <radio name="sel" value=""/>
+    </view>
+
+    <view class="item">
+    <text class="title"><text class="num">97</text>.<text class="name">王五</text> | <text class="status">排号中</text></text> 
+    <radio name="sel" value=""/>
+    </view>
+   
+    <view class="item">
+    <text class="title"><text class="num">96</text>.<text class="name">张飞</text> | <text class="status" style="color:#ff0000">排号中</text></text> 
+    <radio  name="sel" value=""/>
+    </view>
+
+    <view class="item">
+    <text class="title"><text class="num">95</text>.<text class="name">爱雨</text> | <text class="status">排号中</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+
+    <view class="item">
+    <text class="title"><text class="num">94</text>.<text class="name">梦飞翔</text> | <text class="status">确认收到叫号</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+
+    <view class="item">
+    <text class="title"><text class="num">93</text>.<text class="name">冯璐</text> | <text class="status">放弃排号</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+
+    <view class="item">
+    <text class="title"><text class="num">92</text>.<text class="name">金石头</text> | <text class="status">排号完成</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+    
+     <view class="item">
+    <text class="title"><text class="num">92</text>.<text class="name">金石头</text> | <text class="status">排号完成</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+    <view class="item">
+    <text class="title"><text class="num">92</text>.<text class="name">金石头</text> | <text class="status">排号完成</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+    <view class="item">
+    <text class="title"><text class="num">92</text>.<text class="name">金石头</text> | <text class="status">排号完成</text></text>
+    <radio name="sel"  value=""/>
+    </view>
+    <view class="item">
+    <text class="title"><text class="num">92</text>.<text class="name">金石头</text> | <text class="status">排号完成</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+    <view class="item">
+    <text class="title"><text class="num">92</text>.<text class="name">金石头</text> | <text class="status">排号完成</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+    <view class="item">
+    <text class="title"><text class="num">92</text>.<text class="name">金石头</text> | <text class="status">排号完成</text></text>
+    <radio  name="sel" value=""/>
+    </view>
+    <view class="item">
+    <text class="title"><text class="num">92</text>.<text class="name">金石头</text> | <text class="status">排号完成</text></text>
+   <radio  name="sel" value=""/>
+     </view>
+
+  </scroll-view>
+
+ <view>
+    <navigator url="/pages/ing/index" open-type="navigate" ><button>呼号</button></navigator>
+ 
+    <navigator url="/pages/ing/index" open-type="navigate" ><button>消号</button></navigator>
+ </view>
+ 
+</view>

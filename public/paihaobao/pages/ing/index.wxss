@@ -1,0 +1,23 @@
+/**index.wxss**/
+.section{
+  text-align: center;
+  padding-top: 10px;    
+  line-height: 40px;  
+}
+.section .title{
+  font-size:18pt;
+  font-weight:bold;
+}
+.section .code view{
+  margin-left: 25%;
+  width: 200px;
+  height: 200px;
+  background: #cccccc;
+}
+.section .status text {
+  color: #ff0000;
+}
+.section button{
+  margin-top: 60px;
+  width: 300px;
+}

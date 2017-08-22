@@ -1,0 +1,43 @@
+{
+  "pages":[   
+    "pages/index/index",     
+    "pages/history/index",
+
+    "pages/shopper/index",
+    "pages/ing/index",
+    "pages/detail/index",
+    "pages/add/index",
+    "pages/status/index",
+    "pages/setting/index",    
+    "pages/index2/index",
+    "pages/logs/logs"    
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#b2b2b2",
+    "selectedColor": "#ff6600",
+    "backgroundColor": "#fdfdfd",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "排队",
+        "iconPath": "pages/images/icon.png",
+        "selectedIconPath": "pages/images/icon.png"
+      },
+      {
+        "pagePath": "pages/setting/index",
+        "text": "设置",
+        "iconPath": "pages/images/icon.png",
+        "selectedIconPath": "pages/images/icon.png"
+      }
+      
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="section">
+
+  <view class="title">   <text>用餐排号</text>          </view>
+  <view class="ex">  
+    <text>请扫描二维码取号</text>    
+  </view>
+  <view class="code">      
+    <view>二维码</view>
+  </view>
+  <view class="status">  
+    <view>总排队<text>150</text>位,当前<text>56</text>号</view>    
+  </view>
+  <view class="next">
+  <navigator url="/pages/index2/index" open-type="navigate" ><button>下一位</button></navigator>
+  </view>   
+</view>

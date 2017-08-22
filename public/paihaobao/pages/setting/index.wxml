@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="section">
+  <view class="top10"></view>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item bc_cc"><navigator url="/pages/add/index" open-type="navigate">发起排号</navigator></view>
+    <view class="flex-item bc_cc"><navigator url="/pages/index2/index" open-type="navigate" >排号管理</navigator></view>
+  </view>
+</view>

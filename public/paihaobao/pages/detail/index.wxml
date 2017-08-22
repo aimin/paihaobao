@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="section">
+
+  <view class="inputview">  
+    <view>排号名称：用餐排号</view>
+    <view>到号提示：49号,请您用餐！</view>    
+    <view>停止提示：排号已停止,感谢您的支持！</view>
+    <view>共排号：150</view>
+    <view>当前到号：50</view>
+    <view>放弃排号：10</view>
+    <view>状态：排号中/未开始/停止</view>
+  </view>
+  
+  <view class="inputview float_left top30">
+    <navigator url="/pages/ing/index" open-type="navigate" ><button>排号</button></navigator>
+  </view> 
+  <view class="inputview float_left top30">
+    <navigator url="/pages/index2/index" open-type="navigate" ><button>停止</button></navigator>
+  </view> 
+  <view class="inputview float_left top30">
+    <navigator url="/pages/shopper/index" open-type="navigate" ><button>顾客</button></navigator>
+  </view>
+  <view class="inputview float_left ">
+    <navigator url="/pages/history/index" open-type="navigate" ><button>历史</button></navigator>
+  </view> 
+  <view class="inputview float_left ">
+    <navigator url="/pages/index2/index" open-type="navigate" ><button>删除</button></navigator>
+  </view> 
+  
+</view>

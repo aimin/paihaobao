@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="section">
+<form bindsubmit="bindFormSubmit">
+  <view class="inputview">  
+    <text>排号名称：</text>    
+    <input placeholder="请输入排号名称" auto-focus/>  
+  </view>
+  <view class="inputview">  
+    <text>到号提示：</text>
+    <textarea bindblur="bindTextAreaBlur" maxlength="60"  placeholder="请输入提示" />  
+  </view>
+  <view class="inputview">  
+    <text>停止提示：</text>
+    <textarea bindblur="bindTextAreaBlur" maxlength="60"  placeholder="请输入提示" />  
+  </view>
+  </form>
+  
+  <view class="inputview top30">
+  <navigator url="/pages/index2/index" open-type="navigate" ><button>保存</button></navigator>
+  </view> 
+  <view class="inputview">
+  <navigator url="/pages/setting/index" open-type="switchTab" ><button>取消</button></navigator>
+  </view>
+</view>

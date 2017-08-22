@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="page">  
+<scroll-view style="width: 100%;">
+   <view class="item">
+    <text class="title"><text>2017.05.05</text>.用餐排号 共160,成90,弃70</text>
+    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
+   </view>
+    <view class="item">
+    <text class="title"><text>2017.05.05</text>.购房排号 共160,成90,弃70</text>
+    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
+   </view>
+    <view class="item">
+    <text class="title"><text>2017.05.05</text>.用餐排号 共160,成90,弃70</text>
+    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
+   </view>
+    <view class="item">
+    <text class="title"><text>2017.05.05</text>.用餐排号 共160,成90,弃70</text>
+    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
+   </view>
+    <view class="item">
+    <text class="title"><text>2017.05.05</text>.用餐排号 共160,成90,弃70</text>
+    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
+   </view>
+    <view class="item">
+    <text class="title"><text>2017.05.05</text>.上学排号 共160,成90,弃70</text>
+    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
+   </view>
+    <view class="item">
+    <text class="title"><text>2017.05.05</text>.杀人排号 共160,成90,弃70</text>
+    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
+   </view>
+    
+  </scroll-view>
+  
+</view>
