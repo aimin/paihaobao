@@ -10,11 +10,11 @@
       </view>
 
       <view class="inputview top30">
-        <navigator url="/pages/index2/index" open-type="switchTab" ><button>放弃排队</button></navigator>
+        <navigator url="/pages/index/index" open-type="navigate" ><button>放弃排队</button></navigator>
       </view> 
-      <view class="inputview">
+      <!-- <view class="inputview">
         <navigator url="/pages/setting/index" open-type="switchTab" ><button>返回我的排队</button></navigator>
-      </view>
+      </view> -->
   </view>
 
   <!--排号关闭-->
@@ -25,9 +25,9 @@
           <view class="classname">感谢您的参与！</view>       
       </view>
 
-      <view class="inputview top30">
+      <!-- <view class="inputview top30">
         <navigator url="/pages/index2/index" open-type="switchTab" ><button>返回我的排队</button></navigator>
-      </view>
+      </view> -->
   </view>
 
   <!--排号到-->
@@ -39,10 +39,10 @@
       </view>
 
       <view class="inputview top30">
-        <navigator url="/pages/index2/index" open-type="switchTab" ><button>确认收到叫号</button></navigator>
+        <navigator url="/pages/index/index" open-type="navigate" ><button>确认收到叫号</button></navigator>
       </view>
        <view class="inputview">
-        <navigator url="/pages/setting/index" open-type="switchTab" ><button>放弃排队</button></navigator>
+        <navigator url="/pages/index/index" open-type="navigate" ><button>放弃排队</button></navigator>
       </view>
   </view>
 

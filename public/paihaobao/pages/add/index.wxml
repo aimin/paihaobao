@@ -16,7 +16,7 @@
   </form>
   
   <view class="inputview top30">
-  <navigator url="/pages/index2/index" open-type="navigate" ><button>保存</button></navigator>
+  <navigator url="/pages/index2/index" open-type="redirectTo" ><button>保存</button></navigator>
   </view> 
   <view class="inputview">
   <navigator url="/pages/setting/index" open-type="switchTab" ><button>取消</button></navigator>

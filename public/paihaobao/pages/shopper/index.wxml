@@ -28,7 +28,7 @@
     </view>
 
     <view class="item">
-    <text class="title"><text class="num">93</text>.<text class="name">冯璐</text> | <text class="status">放弃排号</text></text>
+    <text class="title"><text class="num">93</text>.<text class="name">冯璐sss</text> | <text class="status">放弃排号</text></text>
     <radio  name="sel" value=""/>
     </view>
 
@@ -74,4 +74,5 @@
     <navigator url="/pages/ing/index" open-type="navigate" ><button>消号</button></navigator>
  </view>
  
+
 </view>

@@ -1,9 +1,12 @@
 {
   "pages":[   
-    "pages/index/index",     
+    "pages/index/index",
+    
+    "pages/shopper/index",
+      
     "pages/history/index",
 
-    "pages/shopper/index",
+    
     "pages/ing/index",
     "pages/detail/index",
     "pages/add/index",

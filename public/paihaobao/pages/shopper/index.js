@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+
 var app = getApp()
 Page({
   data: {
@@ -12,8 +13,15 @@ Page({
       url: '../shopper/shopper'
     })
   },
-  onLoad: function () {   
+  onLoad: function () {
     console.log('onLoad')
+    console.log(444)
+    wx.showToast({
+      title: '已呼叫',
+      icon: 'success',
+      duration: 2000
+    })
+
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){

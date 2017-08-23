@@ -7,6 +7,6 @@ class Controller
 {
     
     public __construct(){
-
+        echo "sf\Controller";
     }
 }
