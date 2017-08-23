@@ -6,7 +6,7 @@ namespace sf;
 class Controller 
 {
     
-    public __construct(){
-        echo "sf\Controller";
+    public function __construct(){
+        
     }
 }

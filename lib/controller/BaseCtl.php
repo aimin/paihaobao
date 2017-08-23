@@ -7,13 +7,12 @@ use \sf\Controller;
 /**
 * 
 */
-class TestCtl extends Controller
+class BaseCtl extends Controller
 {
     
-    function __construct(argument)
+    public function __construct()
     {
-        
-        
+        parent::__construct();
     }
 }
 
