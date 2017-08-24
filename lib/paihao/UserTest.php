@@ -40,6 +40,16 @@ use PHPUnit\Framework\TestCase;
             $this->assertEquals(get_class($user),'paihao\User');
         }
 
+        public function testUpdate(){
+            $user = new User(21);
+            $info = [];
+            $info['name'] = 'xxxx1';
+            $info['nick'] = 'xxxx_nick';
+            $bool = $user->Update($info);
+            $this->assertTrue($bool);
+
+        }
+
         public function testLoginFromOpenId(){
             $openid = 'wxopidddddd';
             $info = User::LoginFromOpenId($openid);

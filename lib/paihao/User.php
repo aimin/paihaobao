@@ -53,6 +53,31 @@ class User extends Base
     {
        return new MgLine($this->UID);
     }
+
+    //更新用户信息
+    public function Update($upInfo)
+    {
+        $m = self::GetMySqli();        
+        $names = "";
+        $value_names = "";
+        $formats = "s";
+        foreach ($upInfo as $key => $value) {
+            $formats = $formats . 's';
+            $names = $names.',`'.$key.'`=?';
+            $value_names = $value_names.',$'.$key;
+        }
+        $names = substr($names,1);            
+        $value_names = substr($value_names,1); 
+        $query="update `ph_users` set ".$names." where `uid` = ? ;";        
+        $stmt = $m->prepare($query);        
+        extract($upInfo);
+        eval(sprintf('$stmt->bind_param($formats,%s,$this->UID);',$value_names));
+
+        $bool = $stmt->execute();
+        $stmt->close(); 
+
+        return $bool;
+    }
     
     /**
     * 静态方法：用户注册,返回用户ID,
@@ -103,6 +128,24 @@ class User extends Base
         $stmt->close();
         unset($row['pwd']);
 
+        if($row['uid']>0){
+            return $row;
+        }
+        return null;
+    }
+
+    //用户详情
+    public function detail(){
+        $m = self::GetMySqli();
+        $query = "select * from ph_users where uid=?;"; 
+        $stmt = $m->prepare($query);                
+        $stmt->bind_param('s',$this->UID);        
+        $bool = $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_array(MYSQLI_ASSOC);        
+        $stmt->close();
+        unset($row['pwd']);
+        
         if($row['uid']>0){
             return $row;
         }
