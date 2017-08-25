@@ -100,12 +100,13 @@ CREATE TABLE `ph_users` (
   `modifytime` int(11) DEFAULT NULL COMMENT '修改时间',
   `image` varchar(256) DEFAULT NULL COMMENT '头像',
   `userinfo` text COMMENT '微信用户信息',
+  `lastlogintime` int(11) DEFAULT '0' COMMENT '最后登录时间',
   PRIMARY KEY (`uid`),
   UNIQUE KEY `index_oppenid` (`wxopid`),
   UNIQUE KEY `index_unionid` (`wxunionid`),
   UNIQUE KEY `index_mob` (`mob`),
   UNIQUE KEY `index_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='用户表'
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COMMENT='用户表'
 ;
 
 alter table ph_users comment '用户表';

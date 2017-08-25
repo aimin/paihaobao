@@ -25,6 +25,8 @@ class TestCtl extends BaseCtl
                 }
             }            
             $now = time();
+            $user = new User($uinfo['uid']);            
+            $user->Update(["lastlogintime"=>$now]);
             $uinfo['timestamp'] = $now;
             $uinfo['skey'] = $this->genSkey($uinfo['uid'],$now);
             $this->outjson($uinfo);            
