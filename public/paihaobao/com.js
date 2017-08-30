@@ -16,29 +16,58 @@ function _getSessionUser() {//获取用户信息
     return wx.getStorageSync('SessionUser');
 }
 
+function _sessionRequest(uri,data,cb){ //发出会话请求
+    wx.getUserInfo({
+        withCredentials: false,
+        success: function (res) {
+            // console.log(res.userInfo)
+            wx.request({
+                url: 'https://63481573.qcloud.la'+uri, //仅为示例，并非真实的接口地址
+                data: data,
+                header: _getSessionHeader(),
+                success: function (res) {
+                    if(cb!=undefined){
+                        cb(res);   
+                    }
+                }
+            })
+        }
+    })
+}
+
+
+function _updateUserInfo() {//同步用户信息
+    wx.getUserInfo({
+        withCredentials: false,
+        success: function (res) {
+            // console.log(res.userInfo)
+            wx.request({
+                url: 'https://63481573.qcloud.la/Login/updateUser', //仅为示例，并非真实的接口地址
+                data: res.userInfo,
+                header: _getSessionHeader(),
+                success: function (res) {
+                    // console.log(res.data)
+                }
+            })
+        }
+    })
+}
+
+function _showm(title){
+    wx.showToast({
+        title: title,
+        icon: 'success',
+        duration: 2000
+    })
+}
 var com={
     getSessionHeader: _getSessionHeader
-  ,updateUserInfo: function () {//同步用户信息
-    wx.getUserInfo({
-      withCredentials: false,
-      success: function (res) {
-        console.log(res.userInfo)
-        wx.request({
-          url: 'https://63481573.qcloud.la/Test/updateUser', //仅为示例，并非真实的接口地址
-          data: res.userInfo,
-          header: _getSessionHeader(),
-          success: function (res) {
-            console.log('xxxxxxx')
-            console.log(res.data)
-          }
-        })
-      }
-    })
-  }
+    ,showm:_showm
+  ,updateUserInfo: _updateUserInfo
   , loginTo3rd: function(code) {//通过第三方登录
-    console.log("request is " + code)
+    // console.log("request is " + code)
     wx.request({
-      url: 'https://63481573.qcloud.la/Test/codeLogin', //仅为示例，并非真实的接口地址
+      url: 'https://63481573.qcloud.la/Login/codeLogin', //仅为示例，并非真实的接口地址
       data: {
         code: code
       },
@@ -53,23 +82,24 @@ var com={
         headers['timestamp'] = res.data['data']['timestamp'];
         _saveLocalSessionHeader(headers)
         _saveSessionUser(res.data['data'])
-        console.log(_getSessionUser())
+        _updateUserInfo();
       }
     })
-    console.log("request to " + code)
+    // console.log("request to " + code)
   }
     , saveLocalSessionHeader: _saveLocalSessionHeader
     , saveSessionUser: _saveSessionUser
     , getSessionUser: _getSessionUser
+    , sessionRequest: _sessionRequest
   , testQ:function () {
     //登录后请求示例 
     wx.request({
-      url: 'https://63481573.qcloud.la/Test/testQ',
+      url: 'https://63481573.qcloud.la/Login/testQ',
       data: {
       },
       header: _getSessionHeader(),
       success: function (res) {
-        console.log(res.data)
+        // console.log(res.data)
       }
     })
   }

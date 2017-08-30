@@ -7,17 +7,26 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    wx.login({
-      success:function(res){
-        if(res.code){
-          com.loginTo3rd(res.code)
-          com.testQ();
-          com.updateUserInfo();
-        }else{
-          console.log('用户登录失败'+res.errMsg)
+    
+
+    wx.checkSession({
+        success: function () {
+            //todo 登录有效处理      
+        },
+        fail: function () {
+            wx.login({
+                success: function (res) {
+                    if (res.code) {
+                        //首次登录并更新用户信息
+                        com.loginTo3rd(res.code)                        
+                    } else {
+                        console.log('用户登录失败' + res.errMsg)
+                    }
+                }
+            });   
         }
-      }
-    });
+    })
+
   },
 
   getUserInfo: function(cb) {
