@@ -9,7 +9,7 @@ use \paihao\User ;
 * 
 */
 class LoginCtl extends BaseCtl
-{
+{   
     //微信code登录
     function codeLogin(){
         $code = $_REQUEST['code'];

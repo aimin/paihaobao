@@ -9,11 +9,20 @@ use \sf\Controller;
 */
 class BaseCtl extends Controller
 {
+    public $NotChkPers = [];
     
     public function __construct()
     {
         parent::__construct();
-        // session_start();
+        
+        $this->addIgnoreChkPersList("LoginCtl/codeLogin");
+
+        $this->chkSkey($this->getReqestHeader());
+    }
+
+    //忽略权限检查
+    public function addIgnoreChkPersList($controllerAction){
+        $this->NotChkPers[]=$controllerAction;
     }
 
     public function error($code){
@@ -51,6 +60,9 @@ class BaseCtl extends Controller
 
     //检查skey是否有效
     public function chkSkey($requestHeaders){
+        if(in_array($_GET['controller']."/".$_GET['action'], $this->NotChkPers)){
+            return true;
+        }
         $uid = $requestHeaders['uid'];
         $skey = $requestHeaders['skey'];
         $now = $requestHeaders['timestamp'];

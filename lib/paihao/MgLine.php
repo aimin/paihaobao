@@ -32,6 +32,9 @@ class MgLine extends Base
     */
     public function __construct($uid)
     {
+        if (!$uid){
+            \sf\SfException::Throw("10001"); 
+        }
        $this->UID = $uid;
     }
     
