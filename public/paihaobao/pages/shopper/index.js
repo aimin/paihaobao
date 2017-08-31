@@ -13,9 +13,7 @@ Page({
       url: '../shopper/shopper'
     })
   },
-  onLoad: function () {
-    console.log('onLoad')
-    console.log(444)
+  onLoad: function () {    
     wx.showToast({
       title: '已呼叫',
       icon: 'success',

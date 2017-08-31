@@ -2,21 +2,21 @@
 var com = require('./com')
 App({
   onLaunch: function() {
+    
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    
-
+    wx.setStorageSync('logs', logs)    
+  
     wx.checkSession({
-        success: function () {
-            //todo 登录有效处理      
+        success: function (res) {
+            //todo 登录有效处理     
+            console.log(res) 
         },
         fail: function () {
             wx.login({
                 success: function (res) {
-                    if (res.code) {
+                    if (res.code) {                      
                         //首次登录并更新用户信息
                         com.loginTo3rd(res.code)                        
                     } else {

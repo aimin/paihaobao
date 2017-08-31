@@ -18,8 +18,8 @@ Page({
           return ;
       }
       //发出请求
-      com.sessionRequest('/Line/add',this.data,function(r){
-          console.log(r.data);
+      com.sessionRequest('/Line/add',this.data,function(r){   
+          console.log(r)       
           if(r.data.status==200){
               com.showm('创建成功');
               wx.redirectTo({ url:'/pages/index2/index'});

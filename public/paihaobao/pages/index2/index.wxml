@@ -1,34 +1,15 @@
 <!--index.wxml-->
-<view class="page">  
-<scroll-view style="width: 100%;">
-   <view class="item">
-    <text class="title"><text>1</text>.发起排号</text>
-    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
-   </view>
-    <view class="item">
-    <text class="title"><text>1</text>.发起排号</text>
-    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
-   </view>
-    <view class="item">
-    <text class="title"><text>1</text>.发起排号</text>
-    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
-   </view>
-    <view class="item">
-    <text class="title"><text>1</text>.发起排号</text>
-    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
-   </view>
-    <view class="item">
-    <text class="title"><text>1</text>.发起排号</text>
-    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
-   </view>
-    <view class="item">
-    <text class="title"><text>1</text>.发起排号</text>
-    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
-   </view>
-    <view class="item">
-    <text class="title"><text>1</text>.发起排号</text>
-    <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
-   </view>
+<view class="page"  >  
+    <scroll-view style="width: 100%;">
+        <view class="item" wx:for="{{list}}" wx:key="{{k}}">
+            <text class="title"><text>{{item.lid}}</text>.{{item.lname}}</text>            
+            <navigator url="/pages/detail/index?lid={{item.lid}}" open-type="navigate" ><text class="detail" >></text></navigator>
+            <!-- <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail" bindtap="viewTap">></text></navigator> -->
+        </view>
+    <!-- <view class="item">
+        <text class="title"><text>1</text>.发起排号</text>
+        <navigator url="/pages/detail/index" open-type="navigate" ><text class="detail">></text></navigator>
+    </view> -->
     
   </scroll-view>
   
