@@ -2,7 +2,7 @@
 define('ROOT_PATH',dirname(__FILE__));
 define('CONF_PATH',sprintf("%s/../%s",ROOT_PATH,"conf"));
 define('LIB_PATH',sprintf("%s/../%s",ROOT_PATH,"lib"));
-
+define('QCODE_IMG_PATH',sprintf("%s/../%s",ROOT_PATH,"public/images/qcode/"));
 require_once sprintf("%s/sf/Sf.php",LIB_PATH);
 
 #加载wx_sdk

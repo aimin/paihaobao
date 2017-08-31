@@ -263,7 +263,38 @@ class Line extends Base
     */
     public function GetQCodeURLForNum()
     {
-       // TODO: implement
+        $at = Setting::GetWxAccessToken();
+        $access_token = $at['access_token'];
+                
+        $line_detail = $this->Get();
+         
+        $wx_scene = $line_detail['wx_scene'];
+        $data = json_encode(array("scene" => $wx_scene),true);  
+        // $data = http_build_query($data);  
+        $opts = array(
+            'http'=>array(
+             'method'=>"POST",  
+             'header'=>"Content-type: application/x-www-form-urlencoded\r\n".
+                       "Content-length:".strlen($data)."\r\n" .
+                       "Cookie: foo=bar\r\n" .
+                       "\r\n",
+             'content' => $data,  
+            )
+        );
+        $cxContext = stream_context_create($opts);  
+        $url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=".$access_token;        
+        $save_dir = QCODE_IMG_PATH.substr($wx_scene, 0,3);        
+        $image_data = file_get_contents($url, false, $cxContext);        
+        if (!file_exists($save_dir)){
+            mkdir($save_dir);
+        }
+        $file_path = $save_dir.'/'.$wx_scene.'.jpg';
+        $r = file_put_contents($file_path, $image_data);
+        if($r>0){
+            $path = explode('/images', $file_path);
+            $upInfo['image'] = '/images'.$path[1];
+            $this->UpdateLine($upInfo);
+        }
     }
     
     /**

@@ -28,12 +28,29 @@ class LineCtl extends BaseCtl
         //创建一个排号
         $line = $mgl->CreateLine($info);          
         if($line){
-            $this->outjson(json_encode($line,true));     
+            $this->outjson($line->Get());     
         }else{
             $this->error('50001');
         }
         exit;
-    }    
+    }
+
+    //列表排号
+    function list(){
+        $uid = $this->getReqestHeader('uid');
+        $u = new User($uid);
+        $mgl = $u->GetMgline();
+        $rows = $mgl->MyLaunchedLineList(0,10);
+        $this->outjson($rows);
+    }
+
+    //排号详情
+    function detail(){
+        $lid = $_REQUEST['lid'];
+        $line = new Line($lid);        
+        $detail = $line->InLineDetail();
+        $this->outjson($detail);
+    }
 }
 
 

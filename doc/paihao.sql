@@ -20,6 +20,17 @@ drop index index_oppenid on ph_users;
 
 drop table if exists ph_users;
 
+CREATE TABLE `ph_setting` (
+  `sid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  `value` text,
+  `lasttime` bigint(20) DEFAULT NULL,
+  `createtime` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`sid`),
+  UNIQUE KEY `index_set_name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
 /*==============================================================*/
 /* Table: ph_inline                                             */
 /*==============================================================*/

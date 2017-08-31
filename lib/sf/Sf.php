@@ -35,7 +35,7 @@ class Sf
         //         echo "\n\n\n请使用正确方式执行控制器\n如:\t#'php7 index.php -a [action path]'\n";
         //     }            
         // }else{
-           $uri = $_SERVER['REQUEST_URI']; 
+           $uri = @$_SERVER['REQUEST_URI']; 
         // }
         
         if($uri){

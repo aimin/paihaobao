@@ -83,15 +83,18 @@ class LoginCtl extends BaseCtl
 
     //微信code获取sessionkey
     private function getSessionKeyFromWx($code){
+
+        $wxconfig = \sf\Config::Get('wx');
+
         $r = new \QCloud_WeApp_SDK\Helper\Request();
         $options=[];
         $options['method']='POST';
         $options['url']='https://api.weixin.qq.com/sns/jscode2session';
         $options['data']=[
-            'appid'=>'wx875abb8e8427771f'
-            ,'secret'=>'2aa398d03c9b7064004f87f102edf792'
+            'appid'=>$wxconfig['wxappid']
+            ,'secret'=>$wxconfig['wxappsecret']
             ,'js_code'=>$code
-            ,'grant_type'=>'authorization_code'
+            ,'grant_type'=>$wxconfig['wxgrant_type']
         ];
         $info = $r->send($options);
         return $info;

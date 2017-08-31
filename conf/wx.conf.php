@@ -19,6 +19,12 @@ return $wx=[
     // 信道服务通信是否需要校验签名
     "TunnelCheckSignature" => TRUE,
     // 网络请求超时时长（单位：毫秒）
-    "NetworkTimeout" => 30000
+    "NetworkTimeout" => 30000,
+
+    "wxappid"=>'wx875abb8e8427771f',
+    "wxappsecret"=>'2aa398d03c9b7064004f87f102edf792',
+    "wxgrant_type"=>'authorization_code',
+
+    "QCodeSavePath"=>ROOT_PATH.'/../public/images/qcode'
 ];
 

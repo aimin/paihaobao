@@ -81,7 +81,9 @@ class MgLine extends Base
         }
         $stmt->close();
         if($insert_id>0){
-            return new Line($insert_id);
+            $line = new Line($insert_id);
+            $line->GetQCodeURLForNum();
+            return $line;
         }
     }
     
