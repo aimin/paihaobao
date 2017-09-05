@@ -105,6 +105,8 @@ var com={
       }
     })
   }
+  , Set: wx.setStorageSync
+  , Get: wx.getStorageSync
 }
 
 module.exports = com;

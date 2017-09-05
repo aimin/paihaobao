@@ -52,6 +52,25 @@ class LineCtl extends BaseCtl
         $detail = $line->InLineDetail();
         $this->outjson($detail);
     }
+
+    //开始
+    function start(){
+        $lid = $_REQUEST['lid'];
+        $line = new Line($lid);
+        $inlineid = $line->StartLine();
+        if(!$inlineid){
+            $this->error('29003');
+        }
+
+        $InLineDetail = $line->InLineDetail();
+        $this->outjson($InLineDetail);
+    }
+
+    //停止
+    function stop(){
+
+    }
+
 }
 
 

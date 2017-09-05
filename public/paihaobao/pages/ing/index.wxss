@@ -14,6 +14,10 @@
   height: 200px;
   background: #cccccc;
 }
+.section .code image{
+  width: 200px;
+  height: 200px;
+}
 .section .status text {
   color: #ff0000;
 }

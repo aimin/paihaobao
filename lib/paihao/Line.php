@@ -65,6 +65,7 @@ class Line extends Base
             $bool = $stmt->execute();
             if ($bool){
                 $in_id = $stmt->insert_id;
+                $this->UpdateLine(['status'=>1]);
             }
             $stmt->close(); 
             return $in_id;
