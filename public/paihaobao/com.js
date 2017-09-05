@@ -1,9 +1,7 @@
 //com.js
 function _getSessionHeader() {//获得会话header
     var headers = wx.getStorageSync('SessionHeaders');
-    if(headers==''){
-      var headers={};
-    }else{
+    if(headers!=''){
       headers['content-type'] = 'application/json';
     }
     return headers;

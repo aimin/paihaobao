@@ -1,34 +1,41 @@
 //app.js
 var com = require('./com')
+
+function tologin() {
+  wx.login({
+    success: function (res) {      
+      if (res.code) {
+        //首次登录并更新用户信息        
+        com.loginTo3rd(res.code)
+      } else {
+        console.log('用户登录失败' + res.errMsg)
+      }
+    }
+  });
+};
 App({
-  onLaunch: function() {
-    
+  onLaunch: function() {       
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)    
-  
+    
     wx.checkSession({
         success: function (res) {
-            //todo 登录有效处理     
-            console.log(res) 
+            //todo 登录有效处理            
+            if(com.getSessionHeader()==''){
+              console.log('to login')
+              tologin();
+            }
         },
         fail: function () {
-            wx.login({
-                success: function (res) {
-                    if (res.code) {                      
-                        //首次登录并更新用户信息
-                        com.loginTo3rd(res.code)                        
-                    } else {
-                        console.log('用户登录失败' + res.errMsg)
-                    }
-                }
-            });   
+            console.log('faile')
+            tologin();
         }
     })
 
   },
-
+ 
   getUserInfo: function(cb) {
     var that = this
     if (this.globalData.userInfo) {
