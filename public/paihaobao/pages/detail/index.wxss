@@ -11,6 +11,9 @@
   text-align: left;
   float: left;
 }
+.inputview .w500 {
+  width: 500px;
+}
 
 .inputview button{  
   width: 100px;

@@ -1,9 +1,9 @@
 //com.js
 function _getSessionHeader() {//获得会话header
-    var headers = wx.getStorageSync('SessionHeaders');
+    var headers = wx.getStorageSync('SessionHeaders');    
     if(headers!=''){
       headers['content-type'] = 'application/json';
-    }
+    }    
     return headers;
 }
 function _saveSessionUser(uinfo) {//保存用户信息

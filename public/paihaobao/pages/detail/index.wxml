@@ -2,13 +2,17 @@
 <view class="section">
 
   <view class="inputview">  
-    <view>排号名称：用餐排号</view>
-    <view>到号提示：49号,请您用餐！</view>    
-    <view>停止提示：排号已停止,感谢您的支持！</view>
-    <view>共排号：150</view>
-    <view>当前到号：50</view>
-    <view>放弃排号：10</view>
-    <view>状态：排号中/未开始/停止</view>
+    <view>排号名称：{{lindetail.line.lname}}</view>
+    <view>到号提示：{{lindetail.line.to_tip}}</view>    
+    <view>停止提示：{{lindetail.line.close_tip}}</view>
+    <view>共排号：{{lindetail.inline.sum?lindetail.inline.sum:0}}</view>
+    <view>当前到号：{{lindetail.inline.curr_num?lindetail.inline.curr_num:0}}</view>
+    <view>放弃排号：{{lindetail.inline.abstain_sum?lindetail.inline.abstain_sum:0}}</view>
+    <view class="w500">状态：
+      <b wx:if="{{lindetail.line.status==0}}">未开始</b>
+      <b wx:if="{{lindetail.line.status==1}}">进行中</b>
+      <b wx:if="{{lindetail.line.status==2}}">已停止</b>    
+    </view>
   </view>
   
   <view class="inputview float_left top30">

@@ -2,6 +2,7 @@
 namespace controller;
 use \sf\Controller;
 use \paihao\User ;
+use \paihao\Line;
 
 
 

@@ -16,8 +16,10 @@ class BaseCtl extends Controller
         parent::__construct();
         
         $this->addIgnoreChkPersList("LoginCtl/codeLogin");
-
-        $this->chkSkey($this->getReqestHeader());
+        if(!$_GET['debug']){
+            $this->chkSkey($this->getReqestHeader());    
+        }
+        
     }
 
     //忽略权限检查
