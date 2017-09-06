@@ -19,7 +19,8 @@
     <button bindtap='start'>排号</button>
   </view> 
   <view class="inputview float_left top30">
-    <navigator url="/pages/index2/index" open-type="navigate" ><button>停止</button></navigator>
+    <!-- <navigator url="/pages/index2/index" open-type="navigate" ><button>停止</button></navigator> -->
+     <button bindtap='stop'>停止</button>
   </view> 
   <view class="inputview float_left top30">
     <navigator url="/pages/shopper/index" open-type="navigate" ><button>顾客</button></navigator>

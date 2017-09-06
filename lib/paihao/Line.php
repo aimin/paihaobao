@@ -129,6 +129,9 @@ class Line extends Base
         $stmt = $m->prepare($query);
         $stmt->bind_param('ss',$now,$in_id);
         $bool = $stmt->execute();
+        if($bool){
+            $this->UpdateLine(['status'=>2]);
+        }
         $stmt->close(); 
         
         return $bool;

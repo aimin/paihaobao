@@ -68,7 +68,13 @@ class LineCtl extends BaseCtl
 
     //停止
     function stop(){
-
+        $lid = $_REQUEST['lid'];
+        $line = new Line($lid);
+        $bool = $line->StopLine();
+        if(!$bool){
+            $this->error('29003');
+        }
+        $this->outjson(true);
     }
 
 }

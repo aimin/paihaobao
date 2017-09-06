@@ -15,7 +15,7 @@ Page({
     });
   }
   ,start:function(){
-    console.log(this.data.detail.line)
+    // console.log(this.data.detail.line)
     if (this.data.detail.line.status == 1){
       // console.log('111111')
       wx.navigateTo({ url: '/pages/ing/index', });
@@ -35,6 +35,21 @@ Page({
         }
       });
     }    
+  }
+  ,stop:function(){    
+    var p = this;
+    com.sessionRequest('/Line/stop', { lid: this.data.detail.line.lid }, function (r) {
+      if (r.data.status == '200') {
+        p.data.detail.line.status=2;        
+        p.setData({
+          detail: p.data.detail
+        });
+        com.Set('paihao_detail', p.data.detail)
+        com.showm('停止成功!');
+      } else {
+        com.showm('停止排号失败!');
+      }
+    });
   }
 
 
