@@ -16,7 +16,7 @@ class BaseCtl extends Controller
         parent::__construct();
         
         $this->addIgnoreChkPersList("LoginCtl/codeLogin");
-        if(!$_GET['debug']){
+        if(!isset($_GET['debug'])||!$_GET['debug']){
             $this->chkSkey($this->getReqestHeader());    
         }
         

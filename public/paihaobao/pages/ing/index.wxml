@@ -6,7 +6,9 @@
     <text>请扫描二维码取号</text>    
   </view>
   <view class="code">      
-    <view><image src='https://63481573.qcloud.la{{detail.line.image}}' ></image></view>
+    <view>
+      <image src="https://63481573.qcloud.la{{detail.line.image}}" ></image>  
+    </view>
   </view>
   <view class="status">  
     <view>总排队<text>{{detail.inline.sum?detail.inline.sum:0}}</text>位,当前<text>{{detail.inline.curr_num?detail.inline.curr_num:0}}</text>号</view>    
