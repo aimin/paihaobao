@@ -12,6 +12,7 @@
       <b wx:if="{{detail.line.status==0}}">未开始</b>
       <b wx:if="{{detail.line.status==1}}">进行中</b>
       <b wx:if="{{detail.line.status==2}}">已停止</b>    
+      <b wx:if="{{detail.line.status==-1}}">已删除</b>
     </view>
   </view>
   
@@ -29,7 +30,8 @@
     <navigator url="/pages/history/index" open-type="navigate" ><button>历史</button></navigator>
   </view> 
   <view class="inputview float_left ">
-    <navigator url="/pages/index2/index" open-type="navigate" ><button>删除</button></navigator>
+    <!-- <navigator url="/pages/index2/index" open-type="navigate" ><button>删除</button></navigator> -->
+    <button bindtap="del">删除</button>
   </view> 
   
 </view>

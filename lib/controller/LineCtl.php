@@ -77,6 +77,17 @@ class LineCtl extends BaseCtl
         $this->outjson(true);
     }
 
+    //删除
+    function del(){
+        $lid = $_REQUEST['lid'];
+        $line = new Line($lid);
+        $bool = $line->DeleteLine();
+        if(!$bool){
+            $this->error('10002');
+        }
+        $this->outjson(true);   
+    }
+
 }
 
 

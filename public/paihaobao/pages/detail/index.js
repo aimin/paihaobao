@@ -51,6 +51,20 @@ Page({
       }
     });
   }
-
+  , del: function () {
+    var p = this;
+    com.sessionRequest('/Line/del', { lid: this.data.detail.line.lid }, function (r) {
+      if (r.data.status == '200') {
+        p.data.detail.line.status = -1;
+        p.setData({
+          detail: p.data.detail
+        });
+        com.Set('paihao_detail', p.data.detail)
+        com.showm('删除成功!');
+      } else {
+        com.showm('操作失败!');
+      }
+    });
+  }
 
 })
