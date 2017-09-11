@@ -3,6 +3,12 @@ var com = require('../../com')
 var app = getApp()
 Page({
   data: {
-    detail: com.Get('paihao_detail')
+    detail: {}
+  }  
+  ,onLoad:function(){    
+    this.setData({
+      detail: com.Get('paihao_detail')
+    });   
   }
 })
+

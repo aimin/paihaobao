@@ -25,10 +25,11 @@ Page({
       com.sessionRequest('/Line/start', { lid: this.data.detail.line.lid }, function (r) {
         if(r.data.status=='200'){
           p.data.detail.inline = r.data.data;          
+          com.Set('paihao_detail', r.data.data)
           p.setData({
             detail: r.data.data
-          });
-          com.Set('paihao_detail', p.data.detail)
+          });          
+          
           wx.navigateTo({ url: '/pages/ing/index', });
         }else{
           com.showm('启动排号失败!');
